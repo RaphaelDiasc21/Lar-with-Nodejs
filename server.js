@@ -21,6 +21,7 @@ app.use("/",estoque);
 //     password:'8625251#Ra',
 //     database:'Teste'
 // });
+// DELETE Estoque FROM Estoque INNER JOIN Produto ON Produto.ID = Estoque.ID_PRODUTO WHERE Produto.NOME = 'Arroz';
 
 
 // conn.connect();
