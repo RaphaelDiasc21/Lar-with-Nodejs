@@ -1,0 +1,53 @@
+<%- include('partials/nav.ejs') %>
+
+Tipo de atualização:<select id="selection">
+                        <option value="inserir">Inserir produto</option>
+                        <option value="quantidade">Atualizar quantidade</option>
+                        <option value="excluir">Excluir produto</option>
+                    </select>
+
+<div id="inserir" class="card active">
+    <h2>Inserir produto em estoque</h2>
+        <form action="/atualizar-estoque-inserir" method="POST">
+            Nome:<select name="nome">
+                    <% products_produto.forEach((product)=>{%>
+                     <option value="<%= product.nome %>"><%= product.nome %></option> 
+                    <%})%>  
+                </select>
+            Quantidade:<input type="text" name="quantidade">
+            
+            <button type="submit">Inscrever</button>
+        </form>
+</div>
+
+<div id="quantidade" class="card">
+    <h2>Atualizar produto em estoque</h2>
+        <form action="/atualizar-estoque-alterar-quantidade" method="POST">
+            Nome:<select name="nome">
+                    <% products_estoque.forEach((product_estoque)=>{%>
+                        <option value="<%= product_estoque.NOME %>"><%= product_estoque.NOME %></option> 
+                    <%})%> 
+                </select>
+            Quantidade:<input type="text" name="quantidade">
+            
+            <button type="submit">Inscrever</button>
+        </form>
+</div>
+
+<div id="excluir" class="card">
+        <h2>Excluir produto em estoque</h2>
+            <form action="/produto" method="POST">
+                Nome:<select>
+                        <% products_estoque.forEach((product_estoque)=>{%>
+                            <option value="<%= product_estoque.NOME %>"><%= product_estoque.NOME %></option> 
+                        <%})%>  
+                    </select>
+                Quantidade:<input type="text" name="quantidade">
+                
+                <button type="submit">Inscrever</button>
+            </form>
+    </div>
+
+    <%= message %>
+<script src="js/atualiza_estoque.js"></script>
+<%- include('partials/footer.ejs') %>

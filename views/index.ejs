@@ -1,0 +1,13 @@
+<%- include('partials/nav.ejs') %>
+
+    <form action="/produto" method="POST">
+        Nome:<input type="text" name="nome">
+        Description:<input type="text" name="description">
+        
+        <button type="submit">Inscrever</button>
+    </form>
+
+    <% products.forEach((product)=>{%>
+      <%= product.nome %>
+    <%})%>  
+<%- include('partials/footer.ejs') %>
